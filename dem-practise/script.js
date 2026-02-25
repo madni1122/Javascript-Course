@@ -146,22 +146,64 @@
 // const userAge = 26;
 //  what if we had a fuction, would it be hoisted at top of scope? lets see
 
-debugger;
-aeoHello();
+// aeoHello();
 
-function aeoHello() {
-  const a = 4;
-  var b = 8;
-  addTwoNumbers(a, b);
+// function aeoHello() {
+//   const a = 4;
+//   var b = 8;
+//   addTwoNumbers(a, b);
+// }
+// // and what function like this and we even call it inside another func?
+// function addTwoNumbers(a, b) {
+//   kuchBi();
+//   return a + b;
+// }
+function kuchBi() {
+  console.log("kuch bi");
 }
-// and what function like this and we even call it inside another func?
-function addTwoNumbers(a, b) {
-  return a + b;
-}
-console.log("Hi");
+
+// let i = 1;
+// let limit = 50000; // no.of context execution in call stack depends upon this let's increase it to 100 then more than 100 this (introduceMe) function's context would be created and added to call stack
+// function introduceMe() {
+//   if (i <= limit) {
+//     console.log(i);
+//     i++;
+//     introduceMe();
+//   }
+//   return;
+// }
+// introduceMe();
+
+// and this is called  Stack Overflow where our call stack glass has filled fully and overflows now
+
+// Congratulations! you have even used recursion. Yes when a function calls itself recursion is created like call stack is adding new contexts constantly. it is called recursion in js
+
+// That's all about Call Stack
 
 // now you can understand current order of Call Stack as well
 
 // now take a look carefully, "return" keyword says that go back take Line of Control to where this function was called and place it's returned value there
 
 // just observe when we enter into fuction by moving our line controll step by step with the help of debugger, and meanwhile code exectuion phase or while Js creating "Global Exection Context" it would enter into function and fuction would at that moment would create it's "Local Exection Context" see next pic
+
+// "Hoisting" is not Ecmascript's defined a topic or concept in js but it's man made topic but even then it's most fluently asked interview questions
+const wao = "woa";
+
+function addTwoNumbers() {
+  debugger;
+
+  // let a = 4;
+  // let b = 3;
+  var wao = "haha";
+  console.log(wao);
+}
+addTwoNumbers();
+
+// Conclusion
+
+// 1.
+// all var variables and function definitions via func declaration creates in window obj and we can access them using "Window.varName"
+// and let and const variables are created in Script Scope, and this "Window.varName" can't be used for Script scope
+
+// 2.
+// when a fucntion is called, it's Local Scope is created where all it's local variables stays and not accessible outside of that function
