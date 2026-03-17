@@ -8,32 +8,31 @@
 
 // // console.log(capitalMonths);
 
-const students = [
-  // another example
-  {
-    name: "Muhammad",
-    age: 26,
-  },
-  {
-    name: "Ammar",
-    age: 27,
-  },
-  {
-    name: "Sonia",
-    age: 17,
-  },
-  {
-    name: "Ahmed",
-    age: 34,
-  },
-  {
-    name: "Shiza",
-    age: 15,
-  },
-];
-const adultStudents = students.filter(({ age }) => {
-  // console.log(age);
-});
+// const students = [
+//   {
+//     name: "Muhammad",
+//     age: 26,
+//   },
+//   {
+//     name: "Ammar",
+//     age: 27,
+//   },
+//   {
+//     name: "Sonia",
+//     age: 17,
+//   },
+//   {
+//     name: "Ahmed",
+//     age: 34,
+//   },
+//   {
+//     name: "Shiza",
+//     age: 15,
+//   },
+// ];
+// const adultStudents = students.filter(({ age }) => {
+//   // console.log(age);
+// });
 // .map(({ name }) => name)
 // .filter((student) => student[0].toLowerCase() === "a");
 // console.log(adultStudents);
@@ -113,13 +112,16 @@ const adultStudents = students.filter(({ age }) => {
 
 // Created filter Method own self
 
-function myFilter(array, callback) {
-  let filteredArray = [];
-  for (let i = 0; i < array.length; i++) {
-    const elem = array[i];
-    if (callback(elem, i, array)) {
-      filteredArray.push(elem);
-    }
+function myReduce(array, callback, accumulator) {
+  let loopIdx = 0;
+  if (accumulator === undefined) {
+    accumulator = array[0];
+    loopIdx = 1;
   }
-  return filteredArray;
+  while (loopIdx < array.length) {
+    const elem = array[loopIdx];
+    accumulator = callback(accumulator, elem);
+    loopIdx++;
+  }
+  return accumulator;
 }
