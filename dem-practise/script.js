@@ -1,3 +1,4 @@
+debugger;
 console.log(productsData, myName, myNationality);
 import {
   productsData,
