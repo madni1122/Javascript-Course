@@ -1,0 +1,12 @@
+{
+  "userId": 1,
+  "id": 1,
+  'title': "delectus aut autem",
+  "completed": false,
+}
+// Error: Property keys must be doublequoted
+// Error: Trailing comma (mean last value comma is not allowed too)
+
+
+
+so this is bried introduction of Javascript Object Notation (Json), and json data would always be like double quoted.
