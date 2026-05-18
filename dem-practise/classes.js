@@ -1,31 +1,43 @@
-class createUser {
-  constructor(firstName, lastName, age) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.age = age;
-  }
-  static myName = "Mukaish";
+// class createUser {
+//   constructor(firstName, lastName, age) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.age = age;
+//   }
 
-  static {
-    // in static block "this" points the class
-    this.myLastName = "Ambani";
-    this.getFullName = function () {
-      return this.firstName + " " + this.lastName;
-    };
-  }
-
-  // in this method which goes to prototype of class, "this" keyword points to the obj which class creates and returns
-  getBirthYear() {
-    console.log(this.age);
-
-    return new Date().getFullYear() - this.age;
-  }
-  static;
-}
-// you see "this" changes w.r.t. postioning
+//   getBirthYear() {
+//     let birthYear = new Date().getFullYear() - this.age;
+//     return birthYear;
+//   }
+//   get getFullName() {
+//     return this.firstName + " " + this.lastName;
+//   }
+//   set getFullName(value) {
+//     const [firstName, lastName] = value.split(" ");
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//   }
+// }
 
 // const user1 = new createUser("Muhammad", "Madni", 26);
 // const user2 = new createUser("Asad", "Javed", 65);
 
-// this was static keyword and static block very simple and small topic but often used in tutorials.
-// Now i understand static keyword or block creates property directly on class which won't be available in obj which class creates
+const user = {
+  firstName: "Muhammad",
+  lastName: "Madni",
+  get fullName() {
+    console.log("calling...");
+    return `${this.firstName} ${this.lastName}`;
+  },
+  set fullName(value) {
+    const [firstName, lastName] = value.split(" ");
+    this.firstName = firstName;
+    this.lastName = lastName;
+  },
+};
+// why is setter func introduce, look it only updates the first & last name in our case like doing this "user.fullName = "Mukaish Ambani";" but this is what we could have done like this too, why a setter func at all
+console.log(user.fullName);
+user.firstName = "Mukaish";
+user.lastName = "Ambani";
+console.log(user.fullName);
+
